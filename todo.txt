@@ -1,0 +1,7 @@
+make a flask server to handle all api endpoints
+
+connect it to the next js application
+
+create a dockerfile to configure the application
+
+decide database for datastorage
