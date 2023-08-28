@@ -1,10 +1,14 @@
 # Next.js
 node_modules/
 .next/
+.pnpm-store/
+.pnpm/
 out/
 npm-debug.log*
 yarn-error.log*
 yarn.lock
+/pnpm-lock.yaml
+
 
 /node_modules
 
