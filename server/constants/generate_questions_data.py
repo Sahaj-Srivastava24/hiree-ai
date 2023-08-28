@@ -1,0 +1,4 @@
+generated_questions = "1. What specific skills and knowledge did you gain while working as a Software Engineer Intern for Antier Solutions?\n2. How did you integrate Pinecone Chroma vector store, OpenAI embeddings, and the GPT-3.5-turbo language model into the project?\n3. What technologies did you use to automate the retraining and pushing of data from a database to the text file?\n4. What challenges did you face while deploying the project on AWS?\n5. What was the main highlight of your contribution to the Hyundai Motors project?1. How comfortable are you working with ReactJs and Python together?\n2. How have you used Flask and C++ in your past projects?\n3. What techniques do you use to optimize SQL queries?\n4. What experience do you have working with MATLAB?\n5. How do you handle debugging issues when working with multiple technologies in a tech stack?"
+
+def get_generated_questions():
+    return generated_questions

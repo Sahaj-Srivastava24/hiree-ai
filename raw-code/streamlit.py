@@ -2,15 +2,6 @@ import streamlit as st
 import requests
 import smtplib
 
-def send_email(to_email):
-    from_email = "jsehgal2003@gmail.com"
-    subject = "Congratulations! You have been shortlisted"
-    message = "Dear Candidate,\n\nYou have been shortlisted for the position.\n\nBest regards,\nRecruitment Team"
-    
-    with smtplib.SMTP("smtp.example.com", 587) as server:
-        server.starttls()
-        server.login(from_email, "your_email_password")
-        server.sendmail(from_email, to_email, f"Subject: {subject}\n\n{message}")
 
 def main():
     st.title("Hire AI")
@@ -27,59 +18,13 @@ def main():
 
         if st.button("Parse"):
             if resume_file:
-    #             files = {'resume': resume_file}
-    #             response = requests.post("http://127.0.0.1:7000/parse-resume", files=files)
-    #             print(f"--------------------{response}--------------------------")
-    #             resume_data = response.json()
-    # #Sir, this is hard coded for now due to some errors// we will rectify it in the second round
+                files = {'resume': resume_file}
+                response = requests.post("http://127.0.0.1:7000/parse-resume", files=files)
+                print(f"--------------------{response}--------------------------")
+                resume_data = response.json()
+                # Sir, this is hard coded for now due to some errors// we will rectify it in the second round
                 st.subheader("Parsed Resume Data:")
-                st.write({
-    "basic_info": {
-      "first_name": "Jashan",
-      "last_name": "Sehgal",
-      "full_name": "Jashan Sehgal",
-      "email": "jsehgal2003@gmail.com",
-      "phone_number": "+91-6284782476",
-      "location": "Punjab",
-      "linkedin_url": "https://www.linkedin.com/in/jashan-sehgal-8a8a81168/",
-      "github_main_page_url": "https://github.com/Jashan2003",
-      "university": "National Institute Of Technology, Jalandhar",
-      "education_level": "B.tech",
-      "graduation_year": "2025",
-      "graduation_month": "July",
-      "majors": "Information Technology (IT)",
-      "GPA": "8.14"
-    },
-    "work_experience": [
-      {
-        "job_title": "Software Engineer Intern",
-        "company": "Antier Solutions",
-        "location": "On-site",
-        "duration": "Paid Intern",
-        "duration_time": "3 months",
-        "job_summary": "Played the part in building a conversational AI for the live project of metaverse store of TATA Steel, Developed and implemented a RASA -powered chatbot(used custom actions and DIET classifier) within Tatas Metaverse product and later used OpenAI to do the same Created a state-of-the-art Generative AI assistant utilizing LangChain for multi-document retrieval and question-answering. Integrated Pinecone Chroma vector store, OpenAI embeddings, and the GPT-3.5-turbo language model for optimized document indexing, similarity matching, and seamless database persistence Used Mysql to store the user conversation in a database Used flask to create a API which converts audio received from the unity frontend into text and then returns answer and status using the AI model back to the frontend Used Python to automate the retraining or pushing the new data from a database to the text file which is used as data for the model Also deployed it myself on AWS server with help of someone who dockerized the stuff. Also contributed to a project of Hyundai Motors where I worked on building an AI feature for data analytics Using AI, I made a plugin for Qliksense which could group different attributes of a dataset that hold a semantic relationship and tells what insight could be taken from that group of attributes"
-      }
-    ],
-    "experience_years": "1 year",
-    "project_experience": [
-      {
-        "project_name": "Real Estate Price Estimation web-app",
-        "project_description": "Used Bengaluru house data to predict the price of real estate in Bengaluru using Linear Regression Accuracy of model is 86% and used K Fold Cross Validation to find the optimal among different models Used Flask for creating APIs to get the location names and estimated price Used various data preprocessing techniques before training the model"
-      },
-      {
-        "project_name": "TextAnalyzer",
-        "project_description": "Made a website in React that helps to change theme of background, remove the extra spaces inside the text, capitalize/lowercase/camelcase the text as well as copy the text to your clipboard Successfully deployed it on Netlify Learnt about javascript, react hooks, states, bootstrap and many other things related to frontend Inspired by Code With Harry Youtube course"
-      }
-    ],
-    "Skills": [
-      {
-        "TechStack": "ReactJs, Python, Flask,C++,SQL,MATLAB"
-      },
-      {
-        "Coding Languages and frameworks": "C++, HTML/CSS, JavaScript, SQL, Python"
-      }
-    ]
-  })
+                st.write(resume_data)
 
     elif task == "Calculate Candidate Score":
         st.header("Calculate Candidate Score")
@@ -130,7 +75,6 @@ def main():
                 st.write("1. What specific skills and knowledge did you gain while working as a Software Engineer Intern for Antier Solutions?\n2. How did you integrate Pinecone Chroma vector store, OpenAI embeddings, and the GPT-3.5-turbo language model into the project?\n3. What technologies did you use to automate the retraining and pushing of data from a database to the text file?\n4. What challenges did you face while deploying the project on AWS?\n5. What was the main highlight of your contribution to the Hyundai Motors project?1. How comfortable are you working with ReactJs and Python together?\n2. How have you used Flask and C++ in your past projects?\n3. What techniques do you use to optimize SQL queries?\n4. What experience do you have working with MATLAB?\n5. How do you handle debugging issues when working with multiple technologies in a tech stack?")
 
     elif task == "Candidate Shortlisting":
-      
 
         # Your existing code for other tasks and imports
         st.header("Candidate Shortlisting")
@@ -170,5 +114,5 @@ def main():
 
 
 
-if _name_ == "_main_":
+if __name___ == '__main__':
     main()

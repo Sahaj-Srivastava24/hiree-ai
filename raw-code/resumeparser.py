@@ -3,7 +3,7 @@ import openai
 import re
 import logging
 import json
-from tokenizer import num_tokens_from_string
+from server.utils.tokenizer import num_tokens_from_string
 from flask import Flask, request, jsonify
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
